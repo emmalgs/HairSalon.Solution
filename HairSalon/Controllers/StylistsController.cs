@@ -44,7 +44,22 @@ namespace HairSalon.Controllers
 
     public ActionResult Details(int id)
     {
-      Stylist foundStylist = _db.Stylists.Include(stylist => stylist.Clients).FirstOrDefault(stylist => stylist.StylistId == id);
+      Stylist foundStylist = _db.Stylists.Include(stylist => stylist.Clients)
+                                          .FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(foundStylist);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      Dictionary <int, string> SpecialtyOptions = new Dictionary<int, string> {
+        {1, "Color"},
+        {2, "Buzz cuts"},
+        {3, "Long cuts"},
+        {4, "Bowl cuts"},
+        {5, "Waxing"}
+      };
+      ViewBag.Specialty = new SelectList(SpecialtyOptions, "Value", "Value");
+      Stylist foundStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId ==id);
       return View(foundStylist);
     }
   }
