@@ -2,7 +2,7 @@
 
 ### By Emma Gerigscott
 
-![gif of webpage in action]()
+![gif of webpage in action](./HairSalon/wwwroot/img/claire.gif)
 
 ## Description
 

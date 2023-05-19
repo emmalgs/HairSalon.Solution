@@ -14,7 +14,7 @@
 }
 
 #header {
-  background-image: url('../img/bread.png');
+  background-image: url('../img/salon2.png');
   background-position: center;
   height: 20vh;
   width: 100vw;
@@ -25,7 +25,7 @@
 #header h1 {
   text-align: center;
   padding-top: 8vh;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 700;
 }
 
@@ -48,6 +48,7 @@
 
 .btn {
   border: 2px solid var(--secondary-contrast);
+  font-size: 1.2em;
 }
 
 #navbar img {
@@ -60,7 +61,7 @@
   top: 20vh;
   width: 80vw;
   height: 80vh;
-  background-image: url("../img/pierre3.png");
+  background-image: url("../img/salon.png");
   background-position: contain;
   background-repeat: no-repeat;
   animation: move 30s linear infinite;
