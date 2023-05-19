@@ -20,5 +20,12 @@ namespace HairSalon.Controllers
       List<Appointment> model = _db.Appointments.ToList();
       return View(model);
     }
+
+    public ActionResult Create()
+    {
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Name");
+      return View();
+    }
   }
 }
