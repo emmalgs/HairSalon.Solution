@@ -1,0 +1,12 @@
+@{
+  Layout ="_Layout";
+}
+
+@using HairSalon.Models
+
+@if (Model.Count == 0)
+{
+  <p>There are no appointments scheduled.</p>
+}
+
+@Html.ActionLink("Add New Appointment", "Create")
