@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Oi&family=PT+Mono&family=Quicksand:wght@400;700&family=Righteous&family=Unbounded:wght@300;800&display=swap');
+
+:root {
+  --main-color: #7DDF64;
+  --main-contrast: #DEB986;
+  --font-color: #070600;
+  --secondary-color: #C0DF85;
+  --secondary-contrast: #23B5D3;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand';
+}
+
+#header {
+  background-image: url('../img/bread.png');
+  background-position: center;
+  height: 20vh;
+  width: 100vw;
+  background-size: contain;
+  background-color: var(--secondary-color);
+}
+
+#header h1 {
+  text-align: center;
+  padding-top: 8vh;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+#header h1 a {
+  text-decoration: none;
+  color: var(--secondary-contrast);
+  text-shadow: 1px 1px 1px var(--font-color);
+}
+
+#header h1 a:hover {
+  color: var(--secondary-contrast);
+}
+
+#navbar {
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--main-color);
+}
+
+.btn {
+  border: 2px solid var(--secondary-contrast);
+}
+
+#navbar img {
+  height: 6em;
+}
+
+.splash {
+  position: absolute;
+  z-index: -1;
+  top: 20vh;
+  width: 80vw;
+  height: 80vh;
+  background-image: url("../img/pierre3.png");
+  background-position: contain;
+  background-repeat: no-repeat;
+  animation: move 30s linear infinite;
+}
+
+.main {
+  padding: 20px;
+  margin: 1em;
+  margin-bottom: 2em;
+  height: 200vh;
+}
+
+table th {
+  padding: 10px;
+}
+
+table td {
+  padding: 8px;
+}
+
+#footer {
+  background-color: var(--secondary-color);
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  height: 12vh;
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+@keyframes move{
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
