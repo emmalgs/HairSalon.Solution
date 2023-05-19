@@ -23,5 +23,5 @@ else
       <p>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId })</p>
     }
   }
-  @Html.ActionLink("Add Client", "Create")
+  @Html.ActionLink("Add Client", "Create", null, null, new { @class="btn" })
 }
