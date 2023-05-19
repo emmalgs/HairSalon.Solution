@@ -23,14 +23,6 @@ namespace HairSalon.Controllers
 
     public ActionResult Create()
     {
-      Dictionary <int, string> SpecialtyOptions = new Dictionary<int, string> {
-        {1, "Color"},
-        {2, "Buzz cuts"},
-        {3, "Long cuts"},
-        {4, "Bowl cuts"},
-        {5, "Waxing"}
-      };
-      ViewBag.Specialty = new SelectList(SpecialtyOptions, "Value", "Value");
       return View();
     }
 
