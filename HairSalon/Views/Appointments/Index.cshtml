@@ -22,7 +22,7 @@ else
     @foreach (Appointment appointment in Model)
     {
       <tr>
-        <td>@appointment.Date.ToString("MM/dd/yyyy")</td>
+        <td>@Html.ActionLink($"{appointment.Date.ToString("MM/dd/yyyy")}", "Details", new { id = appointment.AppointmentId })</td>
         <td>@appointment.Time.ToString(("hh':'mm"))</td>
         <td>@Html.ActionLink($"{appointment.Client.Name}", "Details", "Clients", new { id = appointment.ClientId })</td>
         <td>@Html.ActionLink($"{appointment.Stylist.Name}", "Details", "Stylists", new { id = appointment.StylistId })</td>
