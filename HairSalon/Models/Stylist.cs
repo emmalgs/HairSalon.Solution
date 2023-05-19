@@ -8,6 +8,7 @@ namespace HairSalon.Models
     public string Name { get; set; }
     public SpecialtyOptions Specialty { get; set; }
     public List<Client> Clients { get; set; }
+    public List<Appointment> Appointments { get; set; }
   }
 
   public enum SpecialtyOptions
