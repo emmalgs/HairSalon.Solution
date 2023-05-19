@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+@using HairSalon.Models
+
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+<p>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</p>
+
+@if (Model.Clients.Count == 0)
+{
+  <p>Stylist has no clients.</p>
+  <p>@Html.ActionLink("Add new client", "Create", "Clients")</p>
+}
+else
+{
+  <h3>Clients</h3>
+
+  <table class="table-bordered">
+    <tr>
+      <th class="col">@Html.DisplayNameFor(model => model.Clients[0].Name)</th>
+      <th class="col">@Html.DisplayNameFor(model => model.Clients[0].Phone)</th>
+      <th class="col">@Html.DisplayNameFor(model => model.Clients[0].Email)</th>
+    </tr>
+    @foreach (Client client in Model.Clients)
+    {
+      <tr>
+        <td>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId } )</td>
+        <td>@client.Phone</td>
+        <td>@client.Email</td>
+      </tr>
+    }
+  </table>
+}
