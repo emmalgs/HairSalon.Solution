@@ -51,16 +51,16 @@ namespace HairSalon.Controllers
 
     public ActionResult Edit(int id)
     {
-      Dictionary <int, string> SpecialtyOptions = new Dictionary<int, string> {
-        {1, "Color"},
-        {2, "Buzz cuts"},
-        {3, "Long cuts"},
-        {4, "Bowl cuts"},
-        {5, "Waxing"}
-      };
-      ViewBag.Specialty = new SelectList(SpecialtyOptions, "Value", "Value");
       Stylist foundStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId ==id);
       return View(foundStylist);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Stylist stylist)
+    {
+      _db.Stylists.Update(stylist);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }

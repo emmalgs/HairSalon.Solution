@@ -2,16 +2,21 @@
   Layout = "_Layout";
 }
 @model HairSalon.Models.Stylist
+@using HairSalon.Models
 
 <h2>Edit Stylist</h2>
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.StylistId)
+
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
 
   @Html.LabelFor(model => model.Specialty)
-  @Html.DropDownList("Specialty")
+  @Html.DropDownListFor(model => model.Specialty,
+          new SelectList(Enum.GetNames(typeof(SpecialtyOptions))),
+          "Select Specialty")
 
   <input type="submit" value="Update Stylist" />
 }
