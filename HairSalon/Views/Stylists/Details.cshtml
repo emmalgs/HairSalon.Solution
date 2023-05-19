@@ -35,3 +35,35 @@ else
     }
   </table>
 }
+
+@if (Model.Appointments.Count == 0)
+{
+  <p>No upcoming appointments</p>
+  <p>@Html.ActionLink("Add an appointment", "Create", "Appointments")</p>
+}
+else
+{
+    <h3>Appointments</h3>
+
+  <table class="table-bordered">
+    <tr>
+      <th class="col">@Html.DisplayNameFor(model => model.Appointments[0].Date)</th>
+      <th class="col">@Html.DisplayNameFor(model => model.Appointments[0].Time)</th>
+      <th class="col">@Html.DisplayNameFor(model => model.Appointments[0].Client)</th>
+    </tr>
+    @foreach (Appointment appointment in Model.Appointments)
+    {
+      <tr>
+        <td>@Html.ActionLink($"{appointment.Date.ToString("MM/dd/yyyy")}", "Details", "Appointments", new { id = appointment.AppointmentId } )</td>
+        <td>@appointment.Time.ToString("hh':'mm")</td>
+        @foreach (Client client in Model.Clients)
+        {
+          if (client.ClientId == appointment.ClientId)
+          {
+            <td>@client.Name</td>
+          }
+        }
+      </tr>
+    }
+  </table>
+}

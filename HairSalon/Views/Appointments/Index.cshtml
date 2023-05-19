@@ -8,5 +8,27 @@
 {
   <p>There are no appointments scheduled.</p>
 }
+else
+{
+  <h2>Upcoming Appointments</h2>
+
+  <table class="table-bordered">
+    <tr>
+      <th class="col">Date</th>
+      <th class="col">Time</th>
+      <th class="col">Client</th>
+      <th class="col">Stylist</th>
+    </tr>
+    @foreach (Appointment appointment in Model)
+    {
+      <tr>
+        <td>@appointment.Date.ToString("MM/dd/yyyy")</td>
+        <td>@appointment.Time.ToString(("hh':'mm"))</td>
+        <td>@Html.ActionLink($"{appointment.Client.Name}", "Details", "Clients", new { id = appointment.ClientId })</td>
+        <td>@Html.ActionLink($"{appointment.Stylist.Name}", "Details", "Stylists", new { id = appointment.StylistId })</td>
+      </tr>
+    }
+  </table>
+}
 
 @Html.ActionLink("Add New Appointment", "Create")
