@@ -1,5 +1,9 @@
 @{
   Layout = "_Layout";
+  List<Appointment> appointmentList = ViewBag.AllAppointments;
 }
+@using HairSalon.Models
 
 <h1>Welcome back, Claire!</h1>
+
+<h3>You have @appointmentList.Count appointments scheduled.</h3>
