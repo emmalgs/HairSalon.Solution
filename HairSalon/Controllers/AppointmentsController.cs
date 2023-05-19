@@ -27,5 +27,13 @@ namespace HairSalon.Controllers
       ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Name");
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Appointment appointment)
+    {
+      _db.Appointments.Add(appointment);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
