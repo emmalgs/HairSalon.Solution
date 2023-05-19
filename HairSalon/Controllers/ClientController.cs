@@ -38,8 +38,14 @@ namespace HairSalon.Controllers
 
       List<Stylist> allStylists = _db.Stylists.ToList();
       ViewBag.AllStylistsList = allStylists;
-      
+
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Client foundClient = _db.Clients.Include(client => client.Stylist).FirstOrDefault(client => client.ClientId == id);
+      return View(foundClient);
     }
   }
 }

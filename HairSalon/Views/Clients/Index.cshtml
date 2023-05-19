@@ -20,7 +20,7 @@ else
   {
     foreach (Client client in Model)
     {
-      <p>@client.Name</p>
+      <p>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId })</p>
     }
   }
   @Html.ActionLink("Add Client", "Create")
