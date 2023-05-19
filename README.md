@@ -1,26 +1,60 @@
-What Is This?
-This is an example repo corresponding to multiple lessons within the LearnHowToProgram.com walkthrough on creating a Template application in Section 3: Database Basics.
+# Claire's Salon Manager
 
-This project corresponds to the classwork and lessons that describe how to connect an ASP.NET Core MVC project to a MySQL database using Entity Framework Core. There are multiple lessons in this series. The first lesson in the series is Introducing Entity Framework Core.
+### By Emma Gerigscott
 
-There are multiple branches in this repo that are described more below.
+![gif of webpage in action]()
 
-How To Run This Project
-Install Tools
-Install the tools that are introduced in this series of lessons on LearnHowToProgram.com.
+## Description
 
-Set up the Databases
-Follow the instructions in the LearnHowToProgram.com lesson "Creating a Test Database: Exporting and Importing Databases with MySQL Workbench" to use the template_with_ef_core_dump.sql file located at the top level of this repo to create a new database in MySQL Workbench with the name template_with_ef_core.
+Claire, the impecable salon manager, needed a website to track all her many stylists and corresponding clients. In this web application, Claire can add, update, and delete stylists, clients, and appointments to keep track of her business.
 
-Set Up and Run Project
-Clone this repo.
-Open the terminal and navigate to this project's production directory called "ToDoList".
-Within the production directory "ToDoList", create a new file called appsettings.json.
-Within appsettings.json, put in the following code, replacing the uid and pwd values with your own username and password for MySQL. For the LearnHowToProgram.com lessons, we always assume the uid is root and the pwd is epicodus.
-{
+## Technologies Used
+
+* C#
+* .NET
+* ASP.NET Core
+* MVC
+* Entity Framework Core
+* Pomelo Entity Framework Core
+* Html Helpers
+* MySQL
+
+## Setup Instructions
+
+1. Clone this repo.
+2. Open your terminal (e.g. Terminal or GitBash) and navigate to this project's directory called "HairSalon".
+3. Set up the database:
+  * Import the SQL dump file located in the root directory of this project (HairSalon.Solution) to your MySQL workbench:
+    * In the _Navigator > Administration_ window, select _Data Import/Restore_.
+    * In _Import Options_ select _Import from Self-Contained File_.
+    * Navigate to the sql file located in the root of this projects directory
+    * Under _Default Schema to be Imported To_, select the _New_ button.
+    * Name your database ```claires_salon```
+    * Click _Ok_
+    * Navigate to the tab called _Import Progress_ and click _Start Import_ at the bottom right corner of the window.
+  * You should see the new schema in your _Navigator > Schemas_ tab called ```claires_salon```
+4. Set up the project:
+  * Create a file called 'appsettings.json' in HairSalon.Solution/HairSalon directory
+  * Add the following code to the appsettings.json file:
+  ```
+  {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=best_restaurants_with_ef_core;uid=root;pwd=epicodus;"
+      "DefaultConnection": "Server=localhost;Port=3306;database=claires_salon;uid=[YOUR_SQL_USER_ID];pwd=[YOUR_SQL_PASSWORD];"
+    }
   }
-}
-Within the production directory "Template", run dotnet watch run in the command line to start the project in development mode with a watcher.
-Open the browser to https://localhost:5001. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, review this lesson: Redirecting to HTTPS and Issuing a Security Certificate.
+  ```
+5. Running the project in your browser:
+  * Navigate to the directory "HairSalon" from your terminal.
+  * Run the command from HairSalon ```dotnet watch run```
+  * Your browser should automatically open ```https://localhost:5001/```. You may need to enter your computers password when prompted to allow ASP.NET Core to run in your browser.
+
+
+## Known Bugs
+
+* _Date and time can overlap for Stylists_
+* _Appointments table needs more information, like cost and appointment length_
+* _Appointments can be made for clients with a different stylist_
+
+## License
+[MIT](https://opensource.org/licenses/MIT)  
+Copyright © 2023 Emma Gerigscott
