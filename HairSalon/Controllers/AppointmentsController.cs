@@ -58,5 +58,22 @@ namespace HairSalon.Controllers
                                             .FirstOrDefault(model => model.AppointmentId == id);
       return View(foundApt);
     }
+
+    public ActionResult Edit(int id)
+    {
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Name");
+      Appointment foundApt = _db.Appointments.FirstOrDefault(model => model.AppointmentId == id);
+      return View(foundApt);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Appointment appointment)
+    {
+      int id = appointment.AppointmentId;
+      _db.Appointments.Update(appointment);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    } 
   }
 }
