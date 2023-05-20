@@ -19,6 +19,10 @@ Claire, the impecable salon manager, needed a website to track all her many styl
 * Html Helpers
 * MySQL
 
+## Database Structure
+
+![image of schema connections](./HairSalon/wwwroot/img/db.png)
+
 ## Setup Instructions
 
 1. Clone this repo.
