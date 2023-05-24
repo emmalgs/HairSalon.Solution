@@ -34,18 +34,6 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Appointment appointment)
     {
-      // update client to stylist if stylist does not have client in list
-      // Stylist foundStylist = _db.Stylists.Include(stylist => stylist.Clients).FirstOrDefault(stylist => stylist.StylistId == appointment.StylistId);
-      // List<Client> clients = foundStylist.Clients;
-      // foreach (Client client in clients)
-      // {
-      //   if (client.ClientId == appointment.ClientId)
-      //   {
-      //     client.StylistId = appointment.StylistId;
-      //     _db.Clients.Update(client);
-      //     _db.SaveChanges();
-      //   }
-      // }
       _db.Appointments.Add(appointment);
       _db.SaveChanges();
       return RedirectToAction("Index");
